@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function PartnerRegister() {
   return (
-    <div class="hold-transition register-page pregister-background">
+    <div class="hold-transition register-page mande-background">
       <div class="pregister-box">
         <div class="card">
           <div class="card-body pregister-card-body">
@@ -50,7 +50,7 @@ function PartnerRegister() {
                 />
                 <div class="input-group-append">
                   <div class="input-group-text">
-                    <span class="fas fa-envelope"></span>
+                    <span class="fas fa-phone"></span>
                   </div>
                 </div>
               </div>
@@ -81,7 +81,7 @@ function PartnerRegister() {
               </div>
               <div class="form-group mb-3">
                 <select class="form-control">
-                  <option>--- Selecciona un oficio ---</option>
+                  <option value="" disabled selected>Seleccione un oficio</option>
                   <option>Carpintero</option>
                   <option>Plomero</option>
                   <option>Electrisista</option>
@@ -97,7 +97,7 @@ function PartnerRegister() {
                     id="customFile"
                   />
                   <label class="custom-file-label" for="customFile">
-                    Sube una foto de perfil
+                    Foto de perfil
                   </label>
                 </div>
               </div>
@@ -109,24 +109,24 @@ function PartnerRegister() {
                     id="customFile"
                   />
                   <label class="custom-file-label" for="customFile">
-                    Sube un documento ID
+                    Documento ID
                   </label>
                 </div>
               </div>
               <div class="row">
-                <div class="col-5">
-                  <button type="submit" class="btn btn-primary btn-block">
+                <div class="col-12 mb-3">
+                  <button type="submit" class="btn btn-mande btn-block">
                     Registrarse
                   </button>
                 </div>
               </div>
             </form>
 
-            <Link to="/login" class="text-center">
+            <Link to="/login" class="text-center a-mande">
               Ya tengo una cuenta creada
             </Link>
           </div>
-        </div>{" "}
+        </div>
       </div>
     </div>
   );

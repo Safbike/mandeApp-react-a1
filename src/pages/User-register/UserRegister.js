@@ -45,13 +45,13 @@ function UserRegister() {
               </div>
               <div class="input-group mb-3">
                 <input
-                  type="email"
+                  type="number"
                   class="form-control"
                   placeholder="Teléfono"
                 />
                 <div class="input-group-append">
                   <div class="input-group-text">
-                    <span class="fas fa-envelope"></span>
+                    <span class="fas fa-phone"></span>
                   </div>
                 </div>
               </div>
@@ -87,7 +87,7 @@ function UserRegister() {
                 />
                 <div class="input-group-append">
                   <div class="input-group-text">
-                    <span class="fas fa-user"></span>
+                    <span class="fas fa-map-marker-alt"></span>
                   </div>
                 </div>
               </div>
@@ -109,8 +109,8 @@ function UserRegister() {
 
               <div class="row">
                 {/* <!-- /.col -->*/}
-                <div class="col-5 ">
-                  <button type="submit" class="btn btn-primary btn-block ">
+                <div class="col-12 ">
+                  <button type="submit" class="btn btn-mande btn-block ">
                     Registrarse
                   </button>
                 </div>
@@ -119,16 +119,16 @@ function UserRegister() {
             </form>
 
             <div className="social-auth-links text-center mb-3">
-              <p>----- ¡Trabaja con nosotros! -----</p>
+            <div class="separator">¡Trabaja con nosotros!</div>
               <Link
                 to="/partner-register"
-                className="btn btn-block btn-primary"
+                className="btn btn-block btn-mande mt-3"
               >
                 Registrarse como colaborador
               </Link>
             </div>
 
-            <Link to="/login" class="text-center">
+            <Link to="/login" class="text-center a-mande">
               Ya tengo una cuenta creada
             </Link>
           </div>

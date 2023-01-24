@@ -1,21 +1,19 @@
 import "./css/login-css.css";
 import { Link } from "react-router-dom";
-
+import Logo from '../../images/logo.jpg'
 function Login() {
   return (
-    <div className="login-page login-background">
+    <div className="login-page mande-background">
       <div className="login-box">
         <div className="card">
           <div className="card-body login-card-body">
             <div className="login-logo">
-              <h2>
-                <b>¡Hola, Bienvenido de nuevo! </b>
-              </h2>
+              <img src={Logo} />
             </div>
 
-            <p className="login-box-msg">Regístrate para iniciar tu sesión</p>
+            {/*<p className="login-box-msg">Regístrate para iniciar tu sesión</p>*/}
 
-            <form action="../../index.html" method="post">
+            <form method="post">
               <div className="input-group mb-3">
                 <input
                   type="email"
@@ -32,7 +30,7 @@ function Login() {
                 <input
                   type="password"
                   className="form-control"
-                  placeholder="Password"
+                  placeholder="Contraseña"
                 />
                 <div className="input-group-append">
                   <div className="input-group-text">
@@ -41,15 +39,15 @@ function Login() {
                 </div>
               </div>
               <div className="row">
-                <div className="col-8">
+                {/*<div className="col-8">
                   <div className="icheck-primary">
                     <input type="checkbox" id="remember" />
                     <label for="remember">Recuérdame</label>
                   </div>
-                </div>
-
-                <div className="col-4">
-                  <button type="submit" className="btn btn-primary btn-block">
+                  </div>*/
+                }
+                <div className="col-12">
+                  <button type="submit" className="btn btn-mande btn-block">
                     Ingresar
                   </button>
                 </div>
@@ -57,20 +55,21 @@ function Login() {
             </form>
 
             <div className="social-auth-links text-center mb-3">
-              <p>----- ¡Trabaja con nosotros! -----</p>
+              <div class="separator">¡Trabaja con nosotros!</div>
+              {/*<p>----- ¡Trabaja con nosotros! -----</p>*/}
               <Link
                 to="/partner-register"
-                className="btn btn-block btn-primary"
+                className="btn btn-block btn-mande mt-2"
               >
                 Registrarse como colaborador
               </Link>
             </div>
-
-            <p className="mb-1">
+            {
+            /*<p className="mb-1">
               <a href="#">Olvidé mi contraseña</a>
-            </p>
+            </p>*/}
             <p className="mb-0">
-              <Link to="/user-register" className="text-center">
+              <Link to="/user-register" className="text-center a-mande">
                 Registrarse como nuevo miembro
               </Link>
             </p>
