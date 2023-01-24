@@ -3,16 +3,15 @@ import { Link } from "react-router-dom";
 
 function PartnerRegister() {
   return (
-    <div class="hold-transition register-page uregister-background">
-      <div class="register-box  ">
-        <div class="register-logo">
-          <h2>
-            <b>Crea una cuenta como colaborador</b>
-          </h2>
-        </div>
+    <div class="hold-transition register-page pregister-background">
+      <div class="pregister-box">
         <div class="card">
-          <div class="card-body register-card-body">
-            <p class="login-box-msg">Regístrate como nuevo colaborador</p>
+          <div class="card-body pregister-card-body">
+            <div class="register-logo">
+              <h2>
+                <b>Crea una cuenta como colaborador</b>
+              </h2>
+            </div>
 
             <form action="../../index.html" method="post">
               <div class="input-group mb-3">

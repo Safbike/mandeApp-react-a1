@@ -5,14 +5,14 @@ function Login() {
   return (
     <div className="login-page login-background">
       <div className="login-box">
-        <div className="login-logo">
-          <h2>
-            <b>¡Hola, Bienvenido de nuevo! </b>
-          </h2>
-        </div>
-
         <div className="card">
           <div className="card-body login-card-body">
+            <div className="login-logo">
+              <h2>
+                <b>¡Hola, Bienvenido de nuevo! </b>
+              </h2>
+            </div>
+
             <p className="login-box-msg">Regístrate para iniciar tu sesión</p>
 
             <form action="../../index.html" method="post">
