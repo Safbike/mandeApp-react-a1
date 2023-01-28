@@ -48,7 +48,7 @@ function Login() {
                 }
                 <div className="col-12">
                   <button type="submit" className="btn btn-mande btn-block">
-                    Ingresarr
+                    Ingresar
                   </button>
                 </div>
               </div>

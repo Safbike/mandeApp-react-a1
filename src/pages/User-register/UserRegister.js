@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function UserRegister() {
   return (
-    <div class="hold-transition register-page uregister-background">
+    <div class="hold-transition register-page mande-background">
       <div class="register-box  ">
         <div class="card">
           <div class="card-body register-card-body">
