@@ -5,6 +5,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login/Login";
 import UserRegister from "./pages/User-register/UserRegister";
 import PartnerRegister from "./pages/Partner-register/PartnerRegister";
+import ViewPartnerProfile from "./pages/ViewPartner-profile/ViewPartnerProfile";
+import ViewUserProfile from "./pages/ViewUser-profile/ViewUserProfile";
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -14,6 +17,8 @@ root.render(
       <Route path="/login" element={<Login />} /> {/*<Login />*/}
       <Route path="/user-register" element={<UserRegister />} />
       <Route path="/partner-register" element={<PartnerRegister />} />
+      <Route path="/view-user-profile" element={<ViewUserProfile />} />
+      <Route path="/view-partner-profile" element={<ViewPartnerProfile />} />
     </Routes>
   </BrowserRouter>
 );
