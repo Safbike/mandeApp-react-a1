@@ -1,8 +1,11 @@
 import "./css/pregister-css.css";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react"; //importamos react
+import { useNavigate } from "react-router-dom";
 
 function PartnerRegister() {
+
+  const navigate = useNavigate();
   //funcion que guarda el contenido de los inputs usando react
   const [caption, setRegister] = useState({
     primer_nombre: '',
@@ -31,6 +34,7 @@ function PartnerRegister() {
     //contiene los datos netos de la solicitud
     const data = await res.json();
     console.log(data);
+    navigate('/login');
   };
 
   //aqui tenemos los valores capturados y enviados al useState

@@ -28,11 +28,11 @@ function Login() {
     //bucle que recorre la tabla trabajador almacenada en un array de datos
     for (let x = 0; x < task1.length; x++) {
       for (let y = 0; y < task1[x].length; y++) {
-        console.log(task1[x][y]);
+        await console.log(task1[x][y]);
         //si los datos coinciden entonces redireccciona al home
-        if(task1[0][y].correo==caption.correo && task1[0][y].password_usuario==caption.pass){
+        if(await task1[0][y].correo==caption.correo && await task1[0][y].password_usuario==caption.pass){
           navigate('/view-partner-profile')
-        }if(task1[1][y].correo==caption.correo && task1[1][y].password_usuario==caption.pass){
+        }if(await task1[x][y].correo==caption.correo && await task1[x][y].password_usuario==caption.pass){
           navigate('/view-user-profile')
         }
       }

@@ -111,7 +111,7 @@ const getUniqueData = async (req, res) => {
 
 const deleteData = async (req, res) => {
     const {deleting} = req.params;
-    const result = await conn.query('DELETE FROM cliente WHERE id_cliente = $1 RETURNING *', [deleting]);
+    const result = await conn.query('DELETE FROM trabajador WHERE id_trabajador = $1 RETURNING *', [deleting]);
     if(result.rowCount === 0){
         return res.status(404).json({
             message: "Dato no encontrado"
