@@ -1,8 +1,7 @@
 //importa la funcion Router()
 const { Router } = require('express');
 const router = Router();
-//importa la conexion a la bd
-const conn = require('./connection');
+
 
 //importar el control de la funcion
 const { 
