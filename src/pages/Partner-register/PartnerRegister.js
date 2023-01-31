@@ -8,6 +8,10 @@ function PartnerRegister() {
   const [caption, setRegister] = useState({
     primer_nombre: '',
     primer_apellido: '',
+    correo: '',
+    celular: '',
+    pass1: '',
+
   });
 
 //captura el evento para el boton de registrarse
@@ -77,9 +81,11 @@ function PartnerRegister() {
               </div>
               <div class="input-group mb-3">
                 <input 
+                name="correo"
                 type="email" 
                 class="form-control" 
                 placeholder="Email" 
+                onChange={lookRequest}
                 />
                 <div class="input-group-append">
                   <div class="input-group-text">
@@ -89,9 +95,11 @@ function PartnerRegister() {
               </div>
               <div class="input-group mb-3">
                 <input
-                  type="email"
+                  name="celular"
+                  type="text"
                   class="form-control"
                   placeholder="Celular"
+                  onChange={lookRequest}
                 />
                 <div class="input-group-append">
                   <div class="input-group-text">
@@ -102,9 +110,11 @@ function PartnerRegister() {
 
               <div class="input-group mb-3">
                 <input
+                  name="pass1"
                   type="password"
                   class="form-control"
                   placeholder="Contraseña"
+                  onChange={lookRequest}
                 />
                 <div class="input-group-append">
                   <div class="input-group-text">
@@ -114,9 +124,11 @@ function PartnerRegister() {
               </div>
               <div class="input-group mb-3">
                 <input
+                  name="pass2"
                   type="password"
                   class="form-control"
                   placeholder="Repetir contraseña"
+                  onChange={lookRequest}
                 />
                 <div class="input-group-append">
                   <div class="input-group-text">

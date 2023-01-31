@@ -8,13 +8,16 @@ const conn = require('../routes/connection');
 //inserta datos con una estructura definida por el desarrollador
 const insertData = async (req, res) => {
     //req.body nos permite conocer la informacion que estamos recibiendo
-    const { primer_nombre, primer_apellido } = req.body; //extraemos las propiedades especificas del objeto
+    const { primer_nombre, primer_apellido, correo, celular, pass1 } = req.body; //extraemos las propiedades especificas del objeto
     
     try {
         //RETURNING * retorna todos los datos ingresados
-        const result = await conn.query('INSERT INTO trabajador (primer_nombre, primer_apellido) VALUES ($1, $2) RETURNING *', [
+        const result = await conn.query('INSERT INTO trabajador (primer_nombre, primer_apellido, correo, telefono, password_usuario) VALUES ($1, $2, $3, $4, $5) RETURNING *', [
             primer_nombre,
             primer_apellido,
+            correo,
+            celular,
+            pass1,
         ]);
 
         //muestra los datos por navegador
@@ -37,6 +40,17 @@ const getData = async (req, res) => {
         res.json(result.rows);
     } catch (error) {
         console.log(error.message);
+    }
+}
+
+const getLogin = async (req, res) => {
+    let {correo, password} = req.body;
+    
+    try {
+        const result = await conn.query('SELECT * FROM trabajador WHERE correo = $1 ')
+
+    } catch (error) {
+        
     }
 }
 
