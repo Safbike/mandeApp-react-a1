@@ -1,6 +1,5 @@
 import "./css/partnerHome.css";
 import image1 from "../../images/userPic.jpg";
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react'; //importamos react
 import Cookies from "universal-cookie";
@@ -150,10 +149,10 @@ useEffect(()=>{
                     </div>
 
                     <h2 className="profile-username text-center">
-                     <b>{user[0].primer_apellido} {user[0].primer_nombre}</b> 
+                     {user[0].primer_nombre} 
                     </h2>
                       <hr/>
-                    <p className="text-muted text-center ">{user[0].profesion}</p>
+                    <p className="text-muted text-center ">Paseador de Perros</p>
    
 
                     <ul className="list-group list-group-unbordered mb-3">

@@ -34,9 +34,9 @@ function Login() {
         if(await task[0][y].correo==caption.correo && await task[0][y].password_usuario==caption.pass){
           cookie.set('nombreUsuario', task[0][y].primer_nombre ,{path: '/'});
           cookie.set('idTrabajador', task[0][y].id_trabajador ,{path: '/'});
-          navigate('/view-partner-profile')
+          navigate('/home');
         }if(await task[x][y].correo==caption.correo && await task[x][y].password_usuario==caption.pass){
-          navigate('/view-user-profile')
+          navigate('/home');
         }
       }
       
