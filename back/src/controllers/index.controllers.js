@@ -90,9 +90,9 @@ const getLogin = async (req, res) => {
 const getUniqueData = async (req, res) => {
     try {
         //extraemos el dato que queremos usar con req.params y extraemos el 'id'
-        const {idTrabajador} = req.params;
+        const {idPartner} = req.params;
         const result = await conn.query('SELECT * FROM trabajador WHERE id_trabajador = $1', [
-            idTrabajador
+            idPartner
         ]);
         
         //si no encuentra el dato entra en este condicional
