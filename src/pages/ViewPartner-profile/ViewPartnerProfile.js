@@ -2,7 +2,6 @@ import "./css/partnerHome.css";
 import image1 from "../../images/userPic.jpg";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from 'react'; //importamos react
 import Cookies from "universal-cookie";
 
 function ViewPartnerProfile() {
@@ -85,7 +84,7 @@ function ViewPartnerProfile() {
                      <b></b> 
                     </h2>
                       <hr/>
-                    <p className="text-muted text-center ">:c</p>
+                    <p className="text-muted text-center ">Paseador de Perros</p>
    
 
                     <ul className="list-group list-group-unbordered mb-3">

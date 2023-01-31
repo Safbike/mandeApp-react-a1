@@ -120,7 +120,7 @@ function Login() {
             </form>
 
             <div className="social-auth-links text-center mb-3">
-              <div class="separator">¡Trabaja con nosotros!</div>
+              <div className="separator">¡Trabaja con nosotros!</div>
               {/*<p>----- ¡Trabaja con nosotros! -----</p>*/}
               <Link
                 to="/partner-register"
