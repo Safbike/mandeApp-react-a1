@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 
 function UserRegister() {
   return (
-    <div class="hold-transition register-page mande-background">
-      <div class="register-box  ">
-        <div class="card">
-          <div class="card-body register-card-body">
-            <div class="register-logo">
+    <div className="hold-transition register-page mande-background">
+      <div className="register-box  ">
+        <div className="card">
+          <div className="card-body register-card-body">
+            <div className="register-logo">
               <h2>
                 <b>Crea una cuenta</b>
               </h2>
@@ -15,102 +15,102 @@ function UserRegister() {
 
 
             <form action="../../index.html" method="post">
-              <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Nombre" />
-                <div class="input-group-append">
-                  <div class="input-group-text">
-                    <span class="fas fa-user"></span>
+              <div className="input-group mb-3">
+                <input type="text" className="form-control" placeholder="Nombre" />
+                <div className="input-group-append">
+                  <div className="input-group-text">
+                    <span className="fas fa-user"></span>
                   </div>
                 </div>
               </div>
-              <div class="input-group mb-3">
+              <div className="input-group mb-3">
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Apellido"
                 />
-                <div class="input-group-append">
-                  <div class="input-group-text">
-                    <span class="fas fa-user"></span>
+                <div className="input-group-append">
+                  <div className="input-group-text">
+                    <span className="fas fa-user"></span>
                   </div>
                 </div>
               </div>
-              <div class="input-group mb-3">
-                <input type="email" class="form-control" placeholder="Email" />
-                <div class="input-group-append">
-                  <div class="input-group-text">
-                    <span class="fas fa-envelope"></span>
+              <div className="input-group mb-3">
+                <input type="email" className="form-control" placeholder="Email" />
+                <div className="input-group-append">
+                  <div className="input-group-text">
+                    <span className="fas fa-envelope"></span>
                   </div>
                 </div>
               </div>
-              <div class="input-group mb-3">
+              <div className="input-group mb-3">
                 <input
                   type="number"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Teléfono"
                 />
-                <div class="input-group-append">
-                  <div class="input-group-text">
-                    <span class="fas fa-phone"></span>
+                <div className="input-group-append">
+                  <div className="input-group-text">
+                    <span className="fas fa-phone"></span>
                   </div>
                 </div>
               </div>
-              <div class="input-group mb-3">
+              <div className="input-group mb-3">
                 <input
                   type="password"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Contraseña"
                 />
-                <div class="input-group-append">
-                  <div class="input-group-text">
-                    <span class="fas fa-lock"></span>
+                <div className="input-group-append">
+                  <div className="input-group-text">
+                    <span className="fas fa-lock"></span>
                   </div>
                 </div>
               </div>
-              <div class="input-group mb-3">
+              <div className="input-group mb-3">
                 <input
                   type="password"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Repetir contraseña"
                 />
-                <div class="input-group-append">
-                  <div class="input-group-text">
-                    <span class="fas fa-lock"></span>
+                <div className="input-group-append">
+                  <div className="input-group-text">
+                    <span className="fas fa-lock"></span>
                   </div>
                 </div>
               </div>
-              <div class="input-group mb-3">
+              <div className="input-group mb-3">
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Dirección"
                 />
-                <div class="input-group-append">
-                  <div class="input-group-text">
-                    <span class="fas fa-map-marker-alt"></span>
+                <div className="input-group-append">
+                  <div className="input-group-text">
+                    <span className="fas fa-map-marker-alt"></span>
                   </div>
                 </div>
               </div>
 
-              <div class="form-group mb-3">
-                <div class="input-group">
-                  <div class="custom-file">
+              <div className="form-group mb-3">
+                <div className="input-group">
+                  <div className="custom-file">
                     <input
                       type="file"
-                      class="custom-file-input"
-                      id="exampleInputFile"
+                      className="custom-file-input"
+                      id="homeFile"
                     />
-                    <label class="custom-file-label" for="exampleInputFile">
+                    <label className="custom-file-label" htmlFor="homeFile">
                       Certificado de residencia
                     </label>
                   </div>
                 </div>
               </div>
 
-              <div class="row">
+              <div className="row">
                 {/* <!-- /.col -->*/}
-                <div class="col-12 ">
-                  <button type="submit" class="btn btn-mande btn-block ">
+                <div className="col-12 ">
+                  <button type="submit" className="btn btn-mande btn-block ">
                     Registrarse
                   </button>
                 </div>
@@ -119,7 +119,7 @@ function UserRegister() {
             </form>
 
             <div className="social-auth-links text-center mb-3">
-            <div class="separator">¡Trabaja con nosotros!</div>
+            <div className="separator">¡Trabaja con nosotros!</div>
               <Link
                 to="/partner-register"
                 className="btn btn-block btn-mande mt-3"
@@ -128,7 +128,7 @@ function UserRegister() {
               </Link>
             </div>
 
-            <Link to="/login" class="text-center a-mande">
+            <Link to="/login" className="text-center a-mande">
               Ya tengo una cuenta creada
             </Link>
           </div>
