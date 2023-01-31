@@ -8,12 +8,13 @@ const conn = require('../routes/connection');
 //inserta datos con una estructura definida por el desarrollador
 const insertData = async (req, res) => {
     //req.body nos permite conocer la informacion que estamos recibiendo
-    const { labor } = req.body; //extraemos las propiedades especificas del objeto
+    const { primer_nombre, primer_apellido } = req.body; //extraemos las propiedades especificas del objeto
     
     try {
         //RETURNING * retorna todos los datos ingresados
-        const result = await conn.query('INSERT INTO profesion (labor) VALUES ($1) RETURNING *', [
-            labor,
+        const result = await conn.query('INSERT INTO trabajador (primer_nombre, primer_apellido) VALUES ($1, $2) RETURNING *', [
+            primer_nombre,
+            primer_apellido,
         ]);
 
         //muestra los datos por navegador
@@ -30,7 +31,7 @@ const insertData = async (req, res) => {
 const getData = async (req, res) => {
     try {
         //almanceno en una constante la consulta
-        const result = await conn.query('SELECT * FROM profesion');
+        const result = await conn.query('SELECT * FROM trabajador');
 
         //muestra los datos en el navegador
         res.json(result.rows);
@@ -62,7 +63,7 @@ const getUniqueData = async (req, res) => {
 
 const deleteData = async (req, res) => {
     const {deleting} = req.params;
-    const result = await conn.query('DELETE FROM profesion WHERE id_profesion = $1 RETURNING *', [deleting]);
+    const result = await conn.query('DELETE FROM trabajador WHERE id_trabajador = $1 RETURNING *', [deleting]);
     if(result.rowCount === 0){
         return res.status(404).json({
             message: "Dato no encontrado"

@@ -1,7 +1,40 @@
 import "./css/pregister-css.css";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from 'react'; //importamos react
 
 function PartnerRegister() {
+
+  //funcion que guarda el contenido de los inputs usando react
+  const [caption, setRegister] = useState({
+    primer_nombre: '',
+    primer_apellido: '',
+  });
+
+//captura el evento para el boton de registrarse
+  const partnerSubmit = async (e) => {
+
+    //evita que se envie a otra pagina
+    e.preventDefault();
+
+    /*guardamos informacion del objeto en result, fetch es una funcion para enviar los datos a la direccion que le demos,
+    luego configuramos por medio de un objeto el metodo que queremos usar, transformando el objeto json a un string*/
+    const res = await fetch("http://localhost:4000/insertData", {
+      method: "POST",
+      body: JSON.stringify(caption),
+      headers: { "Content-Type": "application/json" }
+    })
+
+    //contiene los datos netos de la solicitud
+    const data = await res.json()
+    console.log(data);
+  }
+
+  //aqui tenemos los valores capturados y enviados al useState
+  const lookRequest = (e) => {
+    //primero copia todo lo que hayamos ingresado, luego captura lo que puse en los respectivos campos 'name', con los respectivos valores escritos
+    setRegister({...caption, [e.target.name]: e.target.value});
+  }
+
   return (
     <div class="hold-transition register-page mande-background">
       <div class="pregister-box">
@@ -13,20 +46,14 @@ function PartnerRegister() {
               </h2>
             </div>
 
-            <form action="../../index.html" method="post">
+            <form onSubmit={partnerSubmit} /*onSubmit ejecuta la funcion contenida*/ action="../../index.html" method="post">
               <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Nombre" />
-                <div class="input-group-append">
-                  <div class="input-group-text">
-                    <span class="fas fa-user"></span>
-                  </div>
-                </div>
-              </div>
-              <div class="input-group mb-3">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Apellido"
+                <input 
+                name="primer_nombre" //nombramos los input
+                type="text" 
+                class="form-control" 
+                placeholder="Nombre" 
+                onChange={lookRequest} //cada cambio que se haga en tiempo real ejecuta la funcion contenida
                 />
                 <div class="input-group-append">
                   <div class="input-group-text">
@@ -35,7 +62,25 @@ function PartnerRegister() {
                 </div>
               </div>
               <div class="input-group mb-3">
-                <input type="email" class="form-control" placeholder="Email" />
+                <input
+                  name="primer_apellido"
+                  type="text"
+                  class="form-control"
+                  placeholder="Apellido"
+                  onChange={lookRequest}
+                />
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-user"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="input-group mb-3">
+                <input 
+                type="email" 
+                class="form-control" 
+                placeholder="Email" 
+                />
                 <div class="input-group-append">
                   <div class="input-group-text">
                     <span class="fas fa-envelope"></span>
