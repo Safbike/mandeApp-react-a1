@@ -1,8 +1,37 @@
 import "./css/UserHome.css";
-import image1 from "../../images/userPic.jpg";
+import { useState, useEffect } from "react";
 /*import { Link } from "react-router-dom";*/
 
 function UserHome() {
+  //funcion que guarda el contenido de los inputs usando react
+  const [caption, setSearch] = useState({
+    searchHome: "",
+  });
+
+  //captura el evento para el boton de registrarse
+  const partnerSubmit = async (e) => {
+    //evita que se envie a otra pagina
+    e.preventDefault();
+
+    /*guardamos informacion del objeto en result, fetch es una funcion para enviar los datos a la direccion que le demos,
+    luego configuramos por medio de un objeto el metodo que queremos usar, transformando el objeto json a un string*/
+    const res = await fetch("http://localhost:4000/insertData", {
+      method: "POST",
+      body: JSON.stringify(caption),
+      headers: { "Content-Type": "application/json" },
+    });
+
+    //contiene los datos netos de la solicitud
+    const data = await res.json();
+    console.log(data);
+  };
+
+  //aqui tenemos los valores capturados y enviados al useState
+  const lookRequest = (e) => {
+    //primero copia todo lo que hayamos ingresado, luego captura lo que puse en los respectivos campos 'name', con los respectivos valores escritos
+    setSearch({ ...caption, [e.target.name]: e.target.value });
+  };
+
   return (
     <div className="wrapper">
       {/*<!-- Content Wrapper. Contains page content -->*/}
@@ -44,7 +73,7 @@ function UserHome() {
                             <input
                               type="search"
                               className="form-control form-control-lg"
-                              placeholder="Buscar"
+                              placeholder="Buscar por oficio"
                             />
                             <div className="input-group-append">
                               <button
@@ -63,84 +92,48 @@ function UserHome() {
                   {/*<!-- /.card -->*/}
                   <div className="card">
                     <div className="card-header">
-                      <p className="card-titl">Resultados de la búsqueda:</p>
+                      <p>Resultados de la búsqueda:</p>
                     </div>
-                    {/*<!-- /.card-header -->}
-                    <div className="card-body">
-                      <table className="table table-bordered">
-                        <thead>
-                          <tr>
-                            <th style={"width: 10px"}>#</th>
-                            <th>Task</th>
-                            <th>Progress</th>
-                            <th style={"width: 40px"}>Label</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>1.</td>
-                            <td>Update software</td>
-                            <td>
-                              <div className="progress progress-xs">
-                                <div
-                                  className="progress-bar progress-bar-danger"
-                                  style={"width: 55%"}
-                                ></div>
-                              </div>
-                            </td>
-                            <td>
-                              <span className="badge bg-danger">55%</span>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>2.</td>
-                            <td>Clean database</td>
-                            <td>
-                              <div className="progress progress-xs">
-                                <div
-                                  className="progress-bar bg-warning"
-                                  style={"width: 70%"}
-                                ></div>
-                              </div>
-                            </td>
-                            <td>
-                              <span className="badge bg-warning">70%</span>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>3.</td>
-                            <td>Cron job running</td>
-                            <td>
-                              <div className="progress progress-xs progress-striped active">
-                                <div
-                                  className="progress-bar bg-primary"
-                                  style={"width: 30%"}
-                                ></div>
-                              </div>
-                            </td>
-                            <td>
-                              <span className="badge bg-primary">30%</span>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>4.</td>
-                            <td>Fix and squish bugs</td>
-                            <td>
-                              <div className="progress progress-xs progress-striped active">
-                                <div
-                                  className="progress-bar bg-success"
-                                  style={"width: 90%"}
-                                ></div>
-                              </div>
-                            </td>
-                            <td>
-                              <span className="badge bg-success">90%</span>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                    {/*<!-- /.card-body -->}
+                    {/*<!-- /.card-header -->*/}
+
+                    <table className="table table-striped table-hover">
+                      <thead>
+                        <tr>
+                          <th> ⭐ </th>
+                          <th>Nombre de Colaborador</th>
+                          <th>Oficio</th>
+                          <th>Precio/hora</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>4.5</td>
+                          <td>Santiago Norrea</td>
+                          <td>Paseador de Perros</td>
+                          <td>7$</td>
+                        </tr>
+                        <tr>
+                          <td>3.9</td>
+                          <td>Valeria Rojas</td>
+                          <td>Cocinero</td>
+                          <td>20$</td>
+                        </tr>
+                        <tr>
+                          <td>4.1</td>
+                          <td>Fernando Casablanca</td>
+                          <td>Gatillero</td>
+                          <td>200$</td>
+                        </tr>
+                        <tr>
+                          <td>4.2</td>
+                          <td>Elsa Caporros</td>
+                          <td>Dealer</td>
+                          <td>5$</td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    {/*<!-- /.card-body -->*/}
                     <div className="card-footer clearfix">
                       <ul className="pagination pagination-sm m-0 float-right">
                         <li className="page-item">
@@ -172,7 +165,6 @@ function UserHome() {
                     </div>
                   </div>
                   {/*<!-- /.card -->*/}
-                  </div>
                 </div>
               </div>
             </div>

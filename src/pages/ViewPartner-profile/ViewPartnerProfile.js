@@ -1,5 +1,6 @@
 import "./css/partnerHome.css";
 import image1 from "../../images/userPic.jpg";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react'; //importamos react
 import Cookies from "universal-cookie";
