@@ -6,7 +6,7 @@ import Cookies from "universal-cookie";
 
 function ViewPartnerProfile() {
   
-  const cookie = new Cookies();
+  const cookie = new Cookies(); 
   const usuario = cookie.get('nombreUsuario')
   const id = cookie.get('idTrabajador')
 
@@ -28,7 +28,7 @@ function ViewPartnerProfile() {
     });
     const data = await response.json();
     getData(data);
-    console.log(task[0])
+    //console.log(task[0])
   }
   
   useEffect(()=>{
@@ -81,10 +81,10 @@ function ViewPartnerProfile() {
                     </div>
 
                     <h2 className="profile-username text-center">
-                     <b>{task[0].primer_nombre} {task[0].primer_apellido}</b> 
+                     <b></b> 
                     </h2>
                       <hr/>
-                    <p className="text-muted text-center ">{task[0].profesion}</p>
+                    <p className="text-muted text-center ">:c</p>
    
 
                     <ul className="list-group list-group-unbordered mb-3">
