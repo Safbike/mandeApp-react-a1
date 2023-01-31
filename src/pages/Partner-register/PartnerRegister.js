@@ -10,7 +10,9 @@ function PartnerRegister() {
     correo: '',
     celular: '',
     pass1: '',
-
+    selectedjob: '',
+    documentoid: '',
+    fotoperfil: '',
   });
 
   //captura el evento para el boton de registrarse
@@ -20,7 +22,7 @@ function PartnerRegister() {
 
     /*guardamos informacion del objeto en result, fetch es una funcion para enviar los datos a la direccion que le demos,
     luego configuramos por medio de un objeto el metodo que queremos usar, transformando el objeto json a un string*/
-    const res = await fetch("http://localhost:4000/insertData", {
+    const res = await fetch("http://localhost:4000/insertPartnerData", {
       method: "POST",
       body: JSON.stringify(caption),
       headers: { "Content-Type": "application/json" },
@@ -81,11 +83,11 @@ function PartnerRegister() {
                   </div>
                 </div>
               </div>
-              <div class="input-group mb-3">
+              <div className="input-group mb-3">
                 <input 
                 name="correo"
                 type="email" 
-                class="form-control" 
+                className="form-control" 
                 placeholder="Email" 
                 onChange={lookRequest}
                 />
@@ -99,7 +101,7 @@ function PartnerRegister() {
                 <input
                   name="celular"
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Celular"
                   onChange={lookRequest}
                 />
@@ -139,7 +141,7 @@ function PartnerRegister() {
                 </div>
               </div>
               <div className="form-group mb-3">
-                <select className="form-control" name="selectedjob">
+                <select className="form-control" name="selectedjob" onChange={lookRequest}>
                   <option value="" disabled selected>
                     Seleccione un oficio
                   </option>
@@ -154,9 +156,11 @@ function PartnerRegister() {
               <div className="form-group mb-3">
                 <div className="custom-file">
                   <input
+                    name="fotoperfil"
                     type="file"
                     className="custom-file-input"
                     id="picFile"
+                    onChange={lookRequest}
                   />
                   <label className="custom-file-label" htmlFor="picFile">
                     Foto de perfil
@@ -166,9 +170,11 @@ function PartnerRegister() {
               <div className="form-group mb-3">
                 <div className="custom-file">
                   <input
+                    name="documentoid"
                     type="file"
                     className="custom-file-input"
                     id="idFile"
+                    onChange={lookRequest}
                   />
                   <label className="custom-file-label" htmlFor="idFile">
                     Documento ID

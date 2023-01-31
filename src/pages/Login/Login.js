@@ -1,34 +1,43 @@
 import "./css/login-css.css";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import Logo from '../../images/logo.jpg'
 import { useState, useEffect } from 'react'; //importamos react
 
 function Login() {
 
-  //funcion que guarda el contenido de los inputs usando react
+  const navigate = useNavigate();
+
+  //estado que guarda el contenido de los inputs
   const [caption, getLogin] = useState({
     correo: '',
     pass: '',
 
   });
 
+  //estado que almacena el arreglo de la tabla trabajador
+  const [task1, getData1] = useState([])
+  const [task2, getData2] = useState([])
+  
 //captura el evento para el boton de registrarse
   const loginSubmit = async (e) => {
 
     //evita que se envie a otra pagina
     e.preventDefault();
-
-    /*guardamos informacion del objeto en result, fetch es una funcion para enviar los datos a la direccion que le demos,
-    luego configuramos por medio de un objeto el metodo que queremos usar, transformando el objeto json a un string*/
-    const res = await fetch("http://localhost:4000/insertData", {
-      method: "POST",
-      body: JSON.stringify(caption),
-      headers: { "Content-Type": "application/json" }
-    })
-
-    //contiene los datos netos de la solicitud
-    const data = await res.json()
-    console.log(data);
+    
+    
+    //bucle que recorre la tabla trabajador almacenada en un array de datos
+    for (let x = 0; x < task1.length; x++) {
+      for (let y = 0; y < task1[x].length; y++) {
+        console.log(task1[x][y]);
+        //si los datos coinciden entonces redireccciona al home
+        if(task1[0][y].correo==caption.correo && task1[0][y].password_usuario==caption.pass){
+          navigate('/view-partner-profile')
+        }if(task1[1][y].correo==caption.correo && task1[1][y].password_usuario==caption.pass){
+          navigate('/view-user-profile')
+        }
+      }
+      
+    }  
   }
 
   //aqui tenemos los valores capturados y enviados al useState
@@ -37,6 +46,19 @@ function Login() {
     getLogin({...caption, [e.target.name]: e.target.value});
   }
 
+  //evento que extrae de la ruta del fetch y captura los datos en un arreglo useState
+  const loadData = async () => {
+    const response1 = await fetch('http://localhost:4000/getPartnerData');
+    const response2 = await fetch('http://localhost:4000/getClientData');
+    const data1 = await response1.json();
+    const data2 = await response2.json();
+    getData1([data1, data2]);
+   
+  }
+
+  useEffect(()=>{
+    loadData();
+  }, []);
 
   return (
     <div className="login-page mande-background">

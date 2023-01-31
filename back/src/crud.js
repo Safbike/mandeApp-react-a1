@@ -2,11 +2,9 @@ const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
 
-
 const app = express();
 
 app.use(morgan('dev'));
-
 //middlewares
 /** convertir objetos de formato json a javascript desde el cliente a mi servidor */
 app.use(express.json());
@@ -20,8 +18,6 @@ app.use(express.urlencoded({extended:false}));
 //routes
 /** importa el archivo dentro del require */
 app.use(require('./routes/index'));
-
-//conexion al front end
 
 //Puerto de ruta
 const port = 4000;
