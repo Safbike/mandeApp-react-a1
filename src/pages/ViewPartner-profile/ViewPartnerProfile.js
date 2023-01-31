@@ -6,37 +6,105 @@ import Cookies from "universal-cookie";
 
 function ViewPartnerProfile() {
   
-  const cookie = new Cookies(); 
+  const cookie = new Cookies();
   const usuario = cookie.get('nombreUsuario')
   const id = cookie.get('idTrabajador')
-
-  //estado que almacena el arreglo de la tabla trabajador
-  const [task, getData] = useState([])
+  
+    //estado que almacena el arreglo de la tabla trabajador
+    const [data, getData] = useState([])
+    const [user, getToken] = useState([])
     
   //captura el evento para el boton de registrarse
-  const loginSubmit = async (e) => {
+    const loginSubmit = async (e) => {
   
-    //evita que se envie a otra pagina
-    e.preventDefault();
+      //evita que se envie a otra pagina
+      e.preventDefault();
       
-  }
+    }
     
-  //evento que extrae de la ruta del fetch y captura los datos en un arreglo useState
-  const loadData = async () => {
-    const response = await fetch(`http://localhost:4000/getUniqueData/${id}`,{
-      method: "GET"
-    });
-    const data = await response.json();
-    getData(data);
-    //console.log(task[0])
-  }
+    //evento que extrae de la ruta del fetch y captura los datos en un arreglo useState
+    const loadData = async () => {
+      const response = await fetch('http://localhost:4000/getPartnerData');
+      const data = await response.json();
+      getData(data);
   
-  useEffect(()=>{
-    loadData();
-  }, []);
+      console.log(data);
+      console.log(id);
+      for(let index=0; index<data.length; index++){
+        if(data[index].id_trabajador==id){
+          const token = data[index].id_trabajador; 
+          const mainData = async () => {
+            const newResponse = await fetch(`http://localhost:4000/getUniqueData/${token}`);
+            const user = await newResponse.json();
+            getToken(user);
+            console.log(user);
+          }
+          console.log("Sigue funcionando");
+          console.log(data[index].id_trabajador);
+          mainData(data[index].id_trabajador);
+        }
+      }
+    }
+  
+    useEffect(()=>{
+      loadData();
+    }, []);
   
 
+//:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*
+const cookie = new Cookies();
+const navigate = useNavigate();
 
+const id = cookie.get('idTrabajador')
+
+//estado que almacena el arreglo de la tabla trabajador
+const [task, getData] = useState([])
+
+//captura el evento para el boton de registrarse
+const loginSubmit = async (e) => {
+
+  //evita que se envie a otra pagina
+  e.preventDefault();
+  
+  
+  //bucle que recorre la tabla trabajador almacenada en un array de datos
+  for (let x = 0; x < task.length; x++) {
+    for (let y = 0; y < task[x].length; y++) {
+      await console.log(task[x][y]);
+      //si los datos coinciden entonces redireccciona al home
+      if(await task[0][y].correo==caption.correo && await task[0][y].password_usuario==caption.pass){
+        cookie.set('nombreUsuario', task[0][y].primer_nombre ,{path: '/'});
+        cookie.set('idTrabajador', task[0][y].id_trabajador ,{path: '/'});
+        navigate('/view-partner-profile')
+      }if(await task[x][y].correo==caption.correo && await task[x][y].password_usuario==caption.pass){
+        navigate('/view-user-profile')
+      }
+    }
+    
+  }  
+}
+
+//aqui tenemos los valores capturados y enviados al useState
+const lookRequest = (e) => {
+  //primero copia todo lo que hayamos ingresado, luego captura lo que puse en los respectivos campos 'name', con los respectivos valores escritos
+  getLogin({...caption, [e.target.name]: e.target.value});
+}
+
+//evento que extrae de la ruta del fetch y captura los datos en un arreglo useState
+const loadData = async () => {
+  const response1 = await fetch('http://localhost:4000/getPartnerData');
+  const response2 = await fetch('http://localhost:4000/getClientData');
+  const data1 = await response1.json();
+  const data2 = await response2.json();
+  getData([data1, data2]);
+ 
+}
+
+useEffect(()=>{
+  loadData();
+}, []);
+*/
   return (
     <div className="wrapper">
       {/*<!-- Content Wrapper. Contains page content -->*/}
@@ -81,10 +149,10 @@ function ViewPartnerProfile() {
                     </div>
 
                     <h2 className="profile-username text-center">
-                     <b></b> 
+                     <b>{user[0].primer_apellido} {user[0].primer_nombre}</b> 
                     </h2>
                       <hr/>
-                    <p className="text-muted text-center ">:c</p>
+                    <p className="text-muted text-center ">{user[0].profesion}</p>
    
 
                     <ul className="list-group list-group-unbordered mb-3">
