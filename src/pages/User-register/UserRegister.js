@@ -3,11 +3,18 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function UserRegister() {
-  
-   //funcion que guarda el contenido de los inputs usando react
-   const [caption, setRegister] = useState({
-    primer_nombre: "",
-    primer_apellido: "",
+
+ //funcion que guarda el contenido de los inputs usando react
+  const [caption, setRegister] = useState({
+    primer_nombre: '',
+    primer_apellido: '',
+    direccion: '',
+    correo: '',
+    num_celular: '',
+    recibos: '',
+    medio_pago: '',
+    pass2: '',
+
   });
 
   //captura el evento para el boton de registrarse
