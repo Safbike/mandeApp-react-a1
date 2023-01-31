@@ -5,8 +5,12 @@ import { useState, useEffect } from "react"; //importamos react
 function PartnerRegister() {
   //funcion que guarda el contenido de los inputs usando react
   const [caption, setRegister] = useState({
-    primer_nombre: "",
-    primer_apellido: "",
+    primer_nombre: '',
+    primer_apellido: '',
+    correo: '',
+    celular: '',
+    pass1: '',
+
   });
 
   //captura el evento para el boton de registrarse
@@ -77,11 +81,13 @@ function PartnerRegister() {
                   </div>
                 </div>
               </div>
-              <div className="input-group mb-3">
-                <input
-                  type="email"
-                  className="form-control"
-                  placeholder="Email"
+              <div class="input-group mb-3">
+                <input 
+                name="correo"
+                type="email" 
+                class="form-control" 
+                placeholder="Email" 
+                onChange={lookRequest}
                 />
                 <div className="input-group-append">
                   <div className="input-group-text">
@@ -91,9 +97,11 @@ function PartnerRegister() {
               </div>
               <div className="input-group mb-3">
                 <input
-                  type="email"
-                  className="form-control"
+                  name="celular"
+                  type="text"
+                  class="form-control"
                   placeholder="Celular"
+                  onChange={lookRequest}
                 />
                 <div className="input-group-append">
                   <div className="input-group-text">
@@ -104,9 +112,11 @@ function PartnerRegister() {
 
               <div className="input-group mb-3">
                 <input
+                  name="pass1"
                   type="password"
                   className="form-control"
                   placeholder="Contraseña"
+                  onChange={lookRequest}
                 />
                 <div className="input-group-append">
                   <div className="input-group-text">
@@ -116,9 +126,11 @@ function PartnerRegister() {
               </div>
               <div className="input-group mb-3">
                 <input
+                  name="pass2"
                   type="password"
                   className="form-control"
                   placeholder="Repetir contraseña"
+                  onChange={lookRequest}
                 />
                 <div className="input-group-append">
                   <div className="input-group-text">

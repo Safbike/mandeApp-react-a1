@@ -1,7 +1,43 @@
 import "./css/login-css.css";
 import { Link } from "react-router-dom";
 import Logo from '../../images/logo.jpg'
+import { useState, useEffect } from 'react'; //importamos react
+
 function Login() {
+
+  //funcion que guarda el contenido de los inputs usando react
+  const [caption, getLogin] = useState({
+    correo: '',
+    pass: '',
+
+  });
+
+//captura el evento para el boton de registrarse
+  const loginSubmit = async (e) => {
+
+    //evita que se envie a otra pagina
+    e.preventDefault();
+
+    /*guardamos informacion del objeto en result, fetch es una funcion para enviar los datos a la direccion que le demos,
+    luego configuramos por medio de un objeto el metodo que queremos usar, transformando el objeto json a un string*/
+    const res = await fetch("http://localhost:4000/insertData", {
+      method: "POST",
+      body: JSON.stringify(caption),
+      headers: { "Content-Type": "application/json" }
+    })
+
+    //contiene los datos netos de la solicitud
+    const data = await res.json()
+    console.log(data);
+  }
+
+  //aqui tenemos los valores capturados y enviados al useState
+  const lookRequest = (e) => {
+    //primero copia todo lo que hayamos ingresado, luego captura lo que puse en los respectivos campos 'name', con los respectivos valores escritos
+    getLogin({...caption, [e.target.name]: e.target.value});
+  }
+
+
   return (
     <div className="login-page mande-background">
       <div className="login-box">
@@ -13,12 +49,14 @@ function Login() {
 
             {/*<p className="login-box-msg">Regístrate para iniciar tu sesión</p>*/}
 
-            <form method="post">
+            <form onSubmit={loginSubmit} method="post">
               <div className="input-group mb-3">
                 <input
+                  name="correo"
                   type="email"
                   className="form-control"
                   placeholder="Email"
+                  onChange={lookRequest}
                 />
                 <div className="input-group-append">
                   <div className="input-group-text">
@@ -28,9 +66,11 @@ function Login() {
               </div>
               <div className="input-group mb-3">
                 <input
+                  name="pass"
                   type="password"
                   className="form-control"
                   placeholder="Contraseña"
+                  onChange={lookRequest}
                 />
                 <div className="input-group-append">
                   <div className="input-group-text">
