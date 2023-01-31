@@ -2,38 +2,41 @@ import "./css/partnerHome.css";
 import image1 from "../../images/userPic.jpg";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from 'react'; //importamos react
+import Cookies from "universal-cookie";
 
 function ViewPartnerProfile() {
+  
+  const cookie = new Cookies(); 
+  const usuario = cookie.get('nombreUsuario')
+  const id = cookie.get('idTrabajador')
 
-   //funcion que guarda el contenido de los inputs usando react
-   const [caption, setRegister] = useState({
-    primer_nombre: "",
-    primer_apellido: "",
-  });
-
+  //estado que almacena el arreglo de la tabla trabajador
+  const [task, getData] = useState([])
+    
   //captura el evento para el boton de registrarse
-  const partnerSubmit = async (e) => {
+  const loginSubmit = async (e) => {
+  
     //evita que se envie a otra pagina
     e.preventDefault();
-
-    /*guardamos informacion del objeto en result, fetch es una funcion para enviar los datos a la direccion que le demos,
-    luego configuramos por medio de un objeto el metodo que queremos usar, transformando el objeto json a un string*/
-    const res = await fetch("http://localhost:4000/insertData", {
-      method: "POST",
-      body: JSON.stringify(caption),
-      headers: { "Content-Type": "application/json" },
+      
+  }
+    
+  //evento que extrae de la ruta del fetch y captura los datos en un arreglo useState
+  const loadData = async () => {
+    const response = await fetch(`http://localhost:4000/getUniqueData/${id}`,{
+      method: "GET"
     });
+    const data = await response.json();
+    getData(data);
+    //console.log(task[0])
+  }
+  
+  useEffect(()=>{
+    loadData();
+  }, []);
+  
 
-    //contiene los datos netos de la solicitud
-    const data = await res.json();
-    console.log(data);
-  };
-
-  //aqui tenemos los valores capturados y enviados al useState
-  const lookRequest = (e) => {
-    //primero copia todo lo que hayamos ingresado, luego captura lo que puse en los respectivos campos 'name', con los respectivos valores escritos
-    setRegister({ ...caption, [e.target.name]: e.target.value });
-  };
 
   return (
     <div className="wrapper">
@@ -79,10 +82,10 @@ function ViewPartnerProfile() {
                     </div>
 
                     <h2 className="profile-username text-center">
-                     <b>Santiago Norrea</b> 
+                     <b></b> 
                     </h2>
                       <hr/>
-                    <p className="text-muted text-center ">Paseador de Perros</p>
+                    <p className="text-muted text-center ">:c</p>
    
 
                     <ul className="list-group list-group-unbordered mb-3">

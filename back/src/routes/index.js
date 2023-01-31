@@ -6,17 +6,23 @@ const router = Router();
 //importar el control de la funcion
 const { 
     getUniqueData,
-    insertData,
-    getData, 
+    insertPartnerData,
+    insertUserData,
+    getPartnerData,
+    getClientData, 
     deleteData, 
-    putData} = require('../controllers/index.controllers');
+    putData,
+    getLogin,} = require('../controllers/index.controllers');
 
 //Usa la funcion importada
-router.get('/getUniqueData/:id', getUniqueData);
-router.get('/getData', getData);
+router.get('/getUniqueData/:idPartner', getUniqueData);
+router.get('/getClientData', getClientData);
+router.get('/getPartnerData', getPartnerData);
 router.put('/putData/:id', putData);
 router.delete('/delete/:deleting', deleteData);
-router.post('/insertData', insertData);
+router.post('/insertPartnerData', insertPartnerData);
+router.post('/insertUserData', insertUserData);
+router.post('/getLogin', getLogin)
 
 //exporta Router()
 module.exports = router;
