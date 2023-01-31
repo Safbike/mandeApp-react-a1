@@ -2,9 +2,11 @@ import "./css/login-css.css";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import Logo from '../../images/logo.jpg'
 import { useState, useEffect } from 'react'; //importamos react
+import Cookies from "universal-cookie";
 
 function Login() {
 
+  const cookie = new Cookies();
   const navigate = useNavigate();
 
   //estado que guarda el contenido de los inputs
@@ -15,8 +17,7 @@ function Login() {
   });
 
   //estado que almacena el arreglo de la tabla trabajador
-  const [task1, getData1] = useState([])
-  const [task2, getData2] = useState([])
+  const [task, getData] = useState([])
   
 //captura el evento para el boton de registrarse
   const loginSubmit = async (e) => {
@@ -26,13 +27,15 @@ function Login() {
     
     
     //bucle que recorre la tabla trabajador almacenada en un array de datos
-    for (let x = 0; x < task1.length; x++) {
-      for (let y = 0; y < task1[x].length; y++) {
-        await console.log(task1[x][y]);
+    for (let x = 0; x < task.length; x++) {
+      for (let y = 0; y < task[x].length; y++) {
+        await console.log(task[x][y]);
         //si los datos coinciden entonces redireccciona al home
-        if(await task1[0][y].correo==caption.correo && await task1[0][y].password_usuario==caption.pass){
+        if(await task[0][y].correo==caption.correo && await task[0][y].password_usuario==caption.pass){
+          cookie.set('nombreUsuario', task[0][y].primer_nombre ,{path: '/'});
+          cookie.set('idTrabajador', task[0][y].id_trabajador ,{path: '/'});
           navigate('/view-partner-profile')
-        }if(await task1[x][y].correo==caption.correo && await task1[x][y].password_usuario==caption.pass){
+        }if(await task[x][y].correo==caption.correo && await task[x][y].password_usuario==caption.pass){
           navigate('/view-user-profile')
         }
       }
@@ -52,7 +55,7 @@ function Login() {
     const response2 = await fetch('http://localhost:4000/getClientData');
     const data1 = await response1.json();
     const data2 = await response2.json();
-    getData1([data1, data2]);
+    getData([data1, data2]);
    
   }
 

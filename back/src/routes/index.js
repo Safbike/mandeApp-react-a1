@@ -15,7 +15,7 @@ const {
     getLogin,} = require('../controllers/index.controllers');
 
 //Usa la funcion importada
-router.get('/getUniqueData/:id', getUniqueData);
+router.get('/getUniqueData/:idTrabajador', getUniqueData);
 router.get('/getClientData', getClientData);
 router.get('/getPartnerData', getPartnerData);
 router.put('/putData/:id', putData);

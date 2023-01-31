@@ -1,8 +1,42 @@
 import "./css/partnerHome.css";
 import image1 from "../../images/userPic.jpg";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from 'react'; //importamos react
+import Cookies from "universal-cookie";
 
 function ViewPartnerProfile() {
+  
+  const cookie = new Cookies();
+  const usuario = cookie.get('nombreUsuario')
+  const id = cookie.get('idTrabajador')
+
+  //estado que almacena el arreglo de la tabla trabajador
+  const [task, getData] = useState([])
+    
+  //captura el evento para el boton de registrarse
+  const loginSubmit = async (e) => {
+  
+    //evita que se envie a otra pagina
+    e.preventDefault();
+      
+  }
+    
+  //evento que extrae de la ruta del fetch y captura los datos en un arreglo useState
+  const loadData = async () => {
+    const response = await fetch(`http://localhost:4000/getUniqueData/${id}`,{
+      method: "GET"
+    });
+    const data = await response.json();
+    getData(data);
+    console.log(task[0])
+  }
+  
+  useEffect(()=>{
+    loadData();
+  }, []);
+  
+
+
   return (
     <div className="wrapper">
       {/*<!-- Content Wrapper. Contains page content -->*/}
@@ -47,10 +81,10 @@ function ViewPartnerProfile() {
                     </div>
 
                     <h2 className="profile-username text-center">
-                     <b>Santiago Norrea</b> 
+                     <b>{task[0].primer_nombre} {task[0].primer_apellido}</b> 
                     </h2>
                       <hr/>
-                    <p className="text-muted text-center ">Paseador de Perros</p>
+                    <p className="text-muted text-center ">{task[0].profesion}</p>
    
 
                     <ul className="list-group list-group-unbordered mb-3">
