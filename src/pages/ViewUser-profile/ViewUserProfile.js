@@ -1,6 +1,6 @@
 import "./css/userHome.css";
 import image1 from "../../images/userPic.jpg";
-/*import { Link } from "react-router-dom";*/
+import { Link } from "react-router-dom";
 
 function ViewUserProfile() {
   return (
@@ -17,7 +17,9 @@ function ViewUserProfile() {
               <div className="col-sm-6">
                 <ol className="breadcrumb float-sm-right">
                   <li className="breadcrumb-item">
-                    <a href="#">Inicio</a>
+                    <Link to="/home">
+                      <a href="">Inicio</a>
+                    </Link>
                   </li>
                   <li className="breadcrumb-item active">User Profile</li>
                 </ol>
@@ -38,7 +40,7 @@ function ViewUserProfile() {
                     <div className="text-center">
                       <img
                         className="profile-user-img img-fluid img-circle"
-                        src= {image1}
+                        src={image1}
                         alt="Partner profile picture"
                       />
                     </div>
@@ -46,21 +48,21 @@ function ViewUserProfile() {
                     <h2 className="profile-username text-center">
                       Santiago Norrea
                     </h2>
-                      <hr/>
-                    <p className="text-muted text-center ">Paseador de Perros</p>
-   
+                    <hr />
+                    <p className="text-muted text-center ">
+                      Paseador de Perros
+                    </p>
 
                     <ul className="list-group list-group-unbordered mb-3">
                       <li className="list-group-item">
-                        <b>Valoración media ⭐</b> <a className="float-right">4.6</a>
+                        <b>Valoración media ⭐</b>{" "}
+                        <a className="float-right">4.6</a>
                       </li>
                       <li className="list-group-item">
-                        <b>Trabajos concluidos</b> <a className="float-right">124</a>
+                        <b>Trabajos concluidos</b>{" "}
+                        <a className="float-right">124</a>
                       </li>
-
                     </ul>
-
-  
                   </div>
                   {/*  <!-- /.card-body -->*/}
                 </div>
@@ -85,7 +87,8 @@ function ViewUserProfile() {
                     <hr />
 
                     <strong>
-                      <i className="fas fa-map-marker-alt mr-1"></i> Localización
+                      <i className="fas fa-map-marker-alt mr-1"></i>{" "}
+                      Localización
                     </strong>
 
                     <p className="text-muted">Cali, Valle del cauca</p>
@@ -133,7 +136,6 @@ function ViewUserProfile() {
                           Reviews
                         </a>
                       </li>
-                     
                     </ul>
                   </div>{" "}
                   {/*<!-- /.card-header -->*/}
@@ -149,7 +151,7 @@ function ViewUserProfile() {
                               alt="user image"
                             />
                             <span className="username">
-                              <a href="#">Casimiro Estanislao  </a>
+                              <a href="#">Casimiro Estanislao </a>
                               <a href="#" className="float-right btn-tool">
                                 <i className="fas fa-times"></i>
                               </a>
@@ -158,9 +160,11 @@ function ViewUserProfile() {
                               Cliente desde - 25/01/2022
                             </span>
                           </div>
-                    
+
                           {/* <!-- /.user-block -->*/}
-                          <p><b>Título review </b> - Calificación 5⭐</p>
+                          <p>
+                            <b>Título review </b> - Calificación 5⭐
+                          </p>
                           <p>
                             Lorem ipsum represents a long-held tradition for
                             designers, typographers and the like. Some people
@@ -190,8 +194,8 @@ function ViewUserProfile() {
                         </div>
                         {/* <!-- /.post -->*/}
 
-                         {/* <!-- Post -->*/}
-                         <div className="post">
+                        {/* <!-- Post -->*/}
+                        <div className="post">
                           <div className="user-block">
                             <img
                               className="img-circle img-bordered-sm"
@@ -199,7 +203,7 @@ function ViewUserProfile() {
                               alt="user image"
                             />
                             <span className="username">
-                              <a href="#">Alma Marcela  </a>
+                              <a href="#">Alma Marcela </a>
                               <a href="#" className="float-right btn-tool">
                                 <i className="fas fa-times"></i>
                               </a>
@@ -208,9 +212,11 @@ function ViewUserProfile() {
                               Cliente desde - 14/01/2022
                             </span>
                           </div>
-                    
+
                           {/* <!-- /.user-block -->*/}
-                          <p><b>Título review </b> - Calificación 4⭐</p>
+                          <p>
+                            <b>Título review </b> - Calificación 4⭐
+                          </p>
                           <p>
                             Lorem ipsum represents a long-held tradition for
                             designers, typographers and the like. Some people
@@ -240,8 +246,8 @@ function ViewUserProfile() {
                         </div>
                         {/* <!-- /.post -->*/}
 
-                         {/* <!-- Post -->*/}
-                         <div className="post">
+                        {/* <!-- Post -->*/}
+                        <div className="post">
                           <div className="user-block">
                             <img
                               className="img-circle img-bordered-sm"
@@ -249,7 +255,7 @@ function ViewUserProfile() {
                               alt="user image"
                             />
                             <span className="username">
-                              <a href="#">Aquiles Curro  </a>
+                              <a href="#">Aquiles Curro </a>
                               <a href="#" className="float-right btn-tool">
                                 <i className="fas fa-times"></i>
                               </a>
@@ -258,9 +264,11 @@ function ViewUserProfile() {
                               Cliente desde - 12/06/2021
                             </span>
                           </div>
-                    
+
                           {/* <!-- /.user-block -->*/}
-                          <p><b>Título review </b> - calificación 3.0⭐</p>
+                          <p>
+                            <b>Título review </b> - calificación 3.0⭐
+                          </p>
                           <p>
                             Lorem ipsum represents a long-held tradition for
                             designers, typographers and the like. Some people

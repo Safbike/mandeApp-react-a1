@@ -1,6 +1,6 @@
 import "./css/partnerHome.css";
 import image1 from "../../images/userPic.jpg";
-/*import { Link } from "react-router-dom";*/
+import { Link } from "react-router-dom";
 
 function ViewPartnerProfile() {
   return (
@@ -17,7 +17,10 @@ function ViewPartnerProfile() {
               <div className="col-sm-6">
                 <ol className="breadcrumb float-sm-right">
                   <li className="breadcrumb-item">
-                    <a href="#">Inicio</a>
+                  <Link to="/home">
+                  <a href="">Inicio</a>
+                  </Link>
+                 
                   </li>
                   <li className="breadcrumb-item active">User Profile</li>
                 </ol>
@@ -44,7 +47,7 @@ function ViewPartnerProfile() {
                     </div>
 
                     <h2 className="profile-username text-center">
-                      Santiago Norrea
+                     <b>Santiago Norrea</b> 
                     </h2>
                       <hr/>
                     <p className="text-muted text-center ">Paseador de Perros</p>
@@ -128,8 +131,8 @@ function ViewPartnerProfile() {
                     <ul className="nav nav-pills">
                       <li className="nav-item">
                         <a
-                          className="nav-link active"
-                          href="#activity"
+                          className="nav-link  active"
+                          href="#"
                           data-toggle="tab"
                         >
                           Reviews

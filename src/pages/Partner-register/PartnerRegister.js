@@ -1,9 +1,8 @@
 import "./css/pregister-css.css";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from 'react'; //importamos react
+import { useState, useEffect } from "react"; //importamos react
 
 function PartnerRegister() {
-
   //funcion que guarda el contenido de los inputs usando react
   const [caption, setRegister] = useState({
     primer_nombre: '',
@@ -14,9 +13,8 @@ function PartnerRegister() {
 
   });
 
-//captura el evento para el boton de registrarse
+  //captura el evento para el boton de registrarse
   const partnerSubmit = async (e) => {
-
     //evita que se envie a otra pagina
     e.preventDefault();
 
@@ -25,57 +23,61 @@ function PartnerRegister() {
     const res = await fetch("http://localhost:4000/insertData", {
       method: "POST",
       body: JSON.stringify(caption),
-      headers: { "Content-Type": "application/json" }
-    })
+      headers: { "Content-Type": "application/json" },
+    });
 
     //contiene los datos netos de la solicitud
-    const data = await res.json()
+    const data = await res.json();
     console.log(data);
-  }
+  };
 
   //aqui tenemos los valores capturados y enviados al useState
   const lookRequest = (e) => {
     //primero copia todo lo que hayamos ingresado, luego captura lo que puse en los respectivos campos 'name', con los respectivos valores escritos
-    setRegister({...caption, [e.target.name]: e.target.value});
-  }
+    setRegister({ ...caption, [e.target.name]: e.target.value });
+  };
 
   return (
-    <div class="hold-transition register-page mande-background">
-      <div class="pregister-box">
-        <div class="card">
-          <div class="card-body pregister-card-body">
-            <div class="register-logo">
+    <div className="hold-transition register-page mande-background">
+      <div className="pregister-box">
+        <div className="card">
+          <div className="card-body pregister-card-body">
+            <div className="register-logo">
               <h2>
                 <b>Crea una cuenta como colaborador</b>
               </h2>
             </div>
 
-            <form onSubmit={partnerSubmit} /*onSubmit ejecuta la funcion contenida*/ action="../../index.html" method="post">
-              <div class="input-group mb-3">
-                <input 
-                name="primer_nombre" //nombramos los input
-                type="text" 
-                class="form-control" 
-                placeholder="Nombre" 
-                onChange={lookRequest} //cada cambio que se haga en tiempo real ejecuta la funcion contenida
+            <form
+              onSubmit={partnerSubmit}
+              /*onSubmit ejecuta la funcion contenida*/ action="../../index.html"
+              method="post"
+            >
+              <div className="input-group mb-3">
+                <input
+                  name="primer_nombre" //nombramos los input
+                  type="text"
+                  className="form-control"
+                  placeholder="Nombre"
+                  onChange={lookRequest} //cada cambio que se haga en tiempo real ejecuta la funcion contenida
                 />
-                <div class="input-group-append">
-                  <div class="input-group-text">
-                    <span class="fas fa-user"></span>
+                <div className="input-group-append">
+                  <div className="input-group-text">
+                    <span className="fas fa-user"></span>
                   </div>
                 </div>
               </div>
-              <div class="input-group mb-3">
+              <div className="input-group mb-3">
                 <input
                   name="primer_apellido"
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Apellido"
                   onChange={lookRequest}
                 />
-                <div class="input-group-append">
-                  <div class="input-group-text">
-                    <span class="fas fa-user"></span>
+                <div className="input-group-append">
+                  <div className="input-group-text">
+                    <span className="fas fa-user"></span>
                   </div>
                 </div>
               </div>
@@ -87,13 +89,13 @@ function PartnerRegister() {
                 placeholder="Email" 
                 onChange={lookRequest}
                 />
-                <div class="input-group-append">
-                  <div class="input-group-text">
-                    <span class="fas fa-envelope"></span>
+                <div className="input-group-append">
+                  <div className="input-group-text">
+                    <span className="fas fa-envelope"></span>
                   </div>
                 </div>
               </div>
-              <div class="input-group mb-3">
+              <div className="input-group mb-3">
                 <input
                   name="celular"
                   type="text"
@@ -101,85 +103,88 @@ function PartnerRegister() {
                   placeholder="Celular"
                   onChange={lookRequest}
                 />
-                <div class="input-group-append">
-                  <div class="input-group-text">
-                    <span class="fas fa-phone"></span>
+                <div className="input-group-append">
+                  <div className="input-group-text">
+                    <span className="fas fa-phone"></span>
                   </div>
                 </div>
               </div>
 
-              <div class="input-group mb-3">
+              <div className="input-group mb-3">
                 <input
                   name="pass1"
                   type="password"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Contraseña"
                   onChange={lookRequest}
                 />
-                <div class="input-group-append">
-                  <div class="input-group-text">
-                    <span class="fas fa-lock"></span>
+                <div className="input-group-append">
+                  <div className="input-group-text">
+                    <span className="fas fa-lock"></span>
                   </div>
                 </div>
               </div>
-              <div class="input-group mb-3">
+              <div className="input-group mb-3">
                 <input
                   name="pass2"
                   type="password"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Repetir contraseña"
                   onChange={lookRequest}
                 />
-                <div class="input-group-append">
-                  <div class="input-group-text">
-                    <span class="fas fa-lock"></span>
+                <div className="input-group-append">
+                  <div className="input-group-text">
+                    <span className="fas fa-lock"></span>
                   </div>
                 </div>
               </div>
-              <div class="form-group mb-3">
-                <select class="form-control">
-                  <option value="" disabled selected>Seleccione un oficio</option>
-                  <option>Carpintero</option>
-                  <option>Plomero</option>
-                  <option>Electrisista</option>
-                  <option>Jardinero</option>
-                  <option>Dealer</option>
+              <div className="form-group mb-3">
+                <select className="form-control" name="selectedjob">
+                  <option value="" disabled selected>
+                    Seleccione un oficio
+                  </option>
+                  <option value="carpintero">Carpintero</option>
+                  <option value="plomero">Plomero</option>
+                  <option value="electrisista">Electrisista</option>
+                  <option value="jardinero">Jardinero</option>
+                  <option value="paseadorDePerros"> Paseador de perros</option>
+                  <option value="dealer"> Dealer</option>
                 </select>
               </div>
-              <div class="form-group mb-3">
-                <div class="custom-file">
+              <div className="form-group mb-3">
+                <div className="custom-file">
                   <input
                     type="file"
-                    class="custom-file-input"
-                    id="customFile"
+                    className="custom-file-input"
+                    id="picFile"
                   />
-                  <label class="custom-file-label" for="customFile">
+                  <label className="custom-file-label" htmlFor="picFile">
                     Foto de perfil
                   </label>
                 </div>
               </div>
-              <div class="form-group mb-3">
-                <div class="custom-file">
+              <div className="form-group mb-3">
+                <div className="custom-file">
                   <input
                     type="file"
-                    class="custom-file-input"
-                    id="customFile"
+                    className="custom-file-input"
+                    id="idFile"
                   />
-                  <label class="custom-file-label" for="customFile">
+                  <label className="custom-file-label" htmlFor="idFile">
                     Documento ID
                   </label>
                 </div>
               </div>
-              <div class="row">
-                <div class="col-12 mb-3">
-                  <button type="submit" class="btn btn-mande btn-block">
+              <div className="row">
+                <div className="col-12 mb-3">
+                  <button type="submit" className="btn btn-mande btn-block">
                     Registrarse
                   </button>
                 </div>
               </div>
             </form>
 
-            <Link to="/login" class="text-center a-mande">
+            <Link to="/login" className="text-center a-mande">
               Ya tengo una cuenta creada
             </Link>
           </div>

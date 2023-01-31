@@ -2581,15 +2581,15 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: #3dd6d1;
+  border-color: #3dd6d1;
   box-shadow: none;
 }
 
 .btn-primary:hover {
   color: #fff;
-  background-color: #0069d9;
-  border-color: #0062cc;
+  background-color: #00d6cf;
+  border-color: #00d6cf;
 }
 
 .btn-primary:focus, .btn-primary.focus {
@@ -26650,7 +26650,7 @@ body.text-sm .input-group-text {
 }
 
 .card-primary:not(.card-outline) > .card-header {
-  background-color: #007bff;
+  background-color: #32e7e1;
 }
 
 .card-primary:not(.card-outline) > .card-header,
