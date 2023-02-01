@@ -1,6 +1,7 @@
 import "./css/partnerHome.css";
 import image1 from "../../images/userPic.jpg";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from 'react'; //importamos react
 import Cookies from "universal-cookie";
 
 function ViewPartnerProfile() {
@@ -148,7 +149,7 @@ useEffect(()=>{
                     </div>
 
                     <h2 className="profile-username text-center">
-                     {user[0].primer_nombre} 
+                     {/*user[0].primer_nombre*/} 
                     </h2>
                       <hr/>
                     <p className="text-muted text-center ">Paseador de Perros</p>

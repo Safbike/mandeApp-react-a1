@@ -8,6 +8,7 @@ import PartnerRegister from "./pages/Partner-register/PartnerRegister";
 import ViewPartnerProfile from "./pages/ViewPartner-profile/ViewPartnerProfile";
 import ViewUserProfile from "./pages/ViewUser-profile/ViewUserProfile";
 import UserHome from "./pages/Home/UserHome";
+import HomePage from "./pages/Home/home";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -18,7 +19,7 @@ root.render(
       <Route path="/login" element={<Login />} /> {/*<Login />*/}
       <Route path="/user-register" element={<UserRegister />} />
       <Route path="/partner-register" element={<PartnerRegister />} />
-      <Route path="/home" element={<UserHome />} /> 
+      <Route path="/home" element={<HomePage />} /> 
       <Route path="/view-user-profile" element={<ViewUserProfile />} />
       <Route path="/view-partner-profile" element={<ViewPartnerProfile />} />
     </Routes>

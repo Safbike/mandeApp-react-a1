@@ -1,6 +1,6 @@
 import "./css/UserHome.css";
 import { useState, useEffect } from "react";
-/*import { Link } from "react-router-dom";*/
+import { Link } from "react-router-dom";
 
 function UserHome() {
   //funcion que guarda el contenido de los inputs usando react
@@ -46,7 +46,11 @@ function UserHome() {
               <div className="col-sm-6">
                 <ol className="breadcrumb float-sm-right">
                   <li className="breadcrumb-item">
+                    <Link
+                    to="/login">
                     <a href="#">Cerrar sesión</a>
+                    </Link>
+                    
                   </li>
                   <li className="breadcrumb-item active">User Profile</li>
                 </ol>
@@ -108,7 +112,11 @@ function UserHome() {
                       <tbody>
                         <tr>
                           <td>4.5</td>
-                          <td>Santiago Norrea</td>
+                          <td> <Link
+                    to="/view-partner-profile">
+                    Santiago Norrea
+                    </Link>
+                    </td>
                           <td>Paseador de Perros</td>
                           <td>7$</td>
                         </tr>
