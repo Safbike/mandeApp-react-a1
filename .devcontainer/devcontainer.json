@@ -1,0 +1,10 @@
+{
+    "name": "mandeApp Docker",
+    "dockerFile": "Dockerfile",
+    "appPort": [3000],
+    "runArgs": ["-u", "node"],
+    "postCreateCommand": "npm install"
+
+    
+
+}
